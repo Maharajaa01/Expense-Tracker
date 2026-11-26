@@ -1,0 +1,67 @@
+/*
+ * Expense Tracker design tokens. Values are space-separated RGB channels so
+ * Tailwind can apply opacity (`bg-brand/10`). Dark mode follows frappe-ui's
+ * `[data-theme="dark"]` selector.
+ */
+:root {
+  --et-primary: 16 185 129;        /* emerald 500 */
+  --et-primary-soft: 209 250 229;
+  --et-primary-ink: 4 120 87;      /* emerald 700 – text on light */
+  --et-secondary: 124 58 237;      /* violet 600 */
+  --et-secondary-soft: 237 233 254;
+  --et-income: 22 163 74;          /* green 600 */
+  --et-income-soft: 220 252 231;
+  --et-expense: 229 72 77;         /* coral red */
+  --et-expense-soft: 254 226 226;
+  --et-savings: 13 148 136;        /* teal 600 */
+  --et-savings-soft: 204 251 241;
+  --et-warning: 217 119 6;         /* amber 600 */
+  --et-warning-soft: 254 243 199;
+  --et-canvas: 250 248 245;        /* warm off-white */
+  --et-card: 255 255 255;
+  --et-line: 236 232 226;
+  --et-ink: 23 23 33;
+  --et-ink-muted: 98 98 112;
+  --et-ink-faint: 150 150 160;
+
+  /* Solid fills that carry white text. Same in both themes; each keeps
+     at least 4.5:1 contrast with white (WCAG AA). */
+  --et-primary-solid: 4 120 87;    /* #047857, 5.5:1 */
+  --et-income-solid: 21 128 61;    /* #15803d, 5.0:1 */
+  --et-expense-solid: 196 43 50;   /* #c42b32, 5.6:1 */
+  --et-secondary-solid: 109 40 217;/* #6d28d9, 7.1:1 */
+
+  /* Chart series, validated with the dataviz palette validator against the
+     card surface. Light: CVD ΔE 16.1 (coral < 3:1 → table view + tooltips).
+     Dark: CVD ΔE 6.3 (floor band → fixed series order, legend, 2px gaps,
+     table view). Hex so ECharts can read them directly. */
+  --et-chart-income: #166534;
+  --et-chart-expense: #f87171;
+  --et-chart-other: #94a3b8;
+}
+
+[data-theme='dark'] {
+  --et-primary: 52 211 153;
+  --et-primary-soft: 6 78 59;
+  --et-primary-ink: 110 231 183;
+  --et-secondary: 167 139 250;
+  --et-secondary-soft: 46 16 101;
+  --et-income: 74 222 128;
+  --et-income-soft: 20 83 45;
+  --et-expense: 248 113 113;
+  --et-expense-soft: 127 29 29;
+  --et-savings: 45 212 191;
+  --et-savings-soft: 19 78 74;
+  --et-warning: 251 191 36;
+  --et-warning-soft: 120 53 15;
+  --et-canvas: 11 17 32;           /* deep navy */
+  --et-card: 20 28 46;
+  --et-line: 37 48 71;
+  --et-ink: 236 240 247;
+  --et-ink-muted: 160 171 190;
+  --et-ink-faint: 110 122 143;
+
+  --et-chart-income: #15803d;
+  --et-chart-expense: #f43f5e;
+  --et-chart-other: #64748b;
+}

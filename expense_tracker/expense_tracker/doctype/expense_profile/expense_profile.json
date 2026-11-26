@@ -1,0 +1,185 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:user",
+ "creation": "2026-11-23 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "currency",
+  "default_account",
+  "last_used_account",
+  "column_break_1",
+  "theme",
+  "week_start",
+  "onboarding_done",
+  "alerts_section",
+  "alerts_enabled",
+  "alerts_email",
+  "alerts_app_password",
+  "alerts_since",
+  "column_break_alerts",
+  "alerts_last_uid",
+  "alerts_uid_validity",
+  "alerts_last_checked",
+  "alerts_last_error"
+ ],
+ "fields": [
+  {
+   "default": "__user",
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1,
+   "set_only_once": 1,
+   "unique": 1
+  },
+  {
+   "default": "INR",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "default_account",
+   "fieldtype": "Link",
+   "label": "Default Account",
+   "options": "Finance Account"
+  },
+  {
+   "fieldname": "last_used_account",
+   "fieldtype": "Link",
+   "label": "Last Used Account",
+   "options": "Finance Account"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "System",
+   "fieldname": "theme",
+   "fieldtype": "Select",
+   "label": "Theme",
+   "options": "System\nLight\nDark"
+  },
+  {
+   "default": "Monday",
+   "fieldname": "week_start",
+   "fieldtype": "Select",
+   "label": "Week Start",
+   "options": "Monday\nSunday"
+  },
+  {
+   "default": "0",
+   "fieldname": "onboarding_done",
+   "fieldtype": "Check",
+   "label": "Onboarding Done"
+  },
+  {
+   "fieldname": "alerts_section",
+   "fieldtype": "Section Break",
+   "label": "Bank alert emails"
+  },
+  {
+   "default": "0",
+   "fieldname": "alerts_enabled",
+   "fieldtype": "Check",
+   "label": "Read Bank Alert Emails"
+  },
+  {
+   "fieldname": "alerts_email",
+   "fieldtype": "Data",
+   "label": "Alerts Gmail Address",
+   "length": 140,
+   "options": "Email"
+  },
+  {
+   "description": "Stored encrypted. Create it in your Google Account \u2192 Security \u2192 App passwords. Revoke it there at any time.",
+   "fieldname": "alerts_app_password",
+   "fieldtype": "Password",
+   "label": "Google App Password",
+   "length": 64
+  },
+  {
+   "description": "Emails before this date are ignored (avoids re-importing old history).",
+   "fieldname": "alerts_since",
+   "fieldtype": "Date",
+   "label": "Read Alerts From"
+  },
+  {
+   "fieldname": "column_break_alerts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "alerts_last_uid",
+   "fieldtype": "Int",
+   "label": "Last Processed Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "alerts_uid_validity",
+   "fieldtype": "Data",
+   "label": "Mailbox Identity",
+   "length": 32,
+   "read_only": 1
+  },
+  {
+   "fieldname": "alerts_last_checked",
+   "fieldtype": "Datetime",
+   "label": "Last Checked",
+   "read_only": 1
+  },
+  {
+   "fieldname": "alerts_last_error",
+   "fieldtype": "Small Text",
+   "label": "Last Error",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-11-24 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Expense Tracker",
+ "name": "Expense Profile",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Expense User",
+   "share": 0,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

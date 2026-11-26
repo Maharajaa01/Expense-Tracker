@@ -1,0 +1,12 @@
+{
+	"private": true,
+	"name": "expense_tracker",
+	"description": "Personal finance PWA for Frappe",
+	"license": "MIT",
+	"scripts": {
+		"postinstall": "cd frontend && yarn install --frozen-lockfile",
+		"dev": "cd frontend && yarn dev",
+		"build": "cd frontend && yarn build",
+		"test": "cd frontend && yarn test:run"
+	}
+}

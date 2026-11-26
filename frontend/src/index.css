@@ -1,0 +1,17 @@
+@import 'frappe-ui/style.css';
+@import './theme/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply bg-canvas text-ink antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tabular figures keep amounts aligned in lists. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}

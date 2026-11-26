@@ -1,0 +1,27 @@
+{
+  "category": [
+    "utensils", "coffee", "pizza", "shopping-basket", "shopping-bag", "shopping-cart", "shirt",
+    "bus", "car", "bike", "train-front", "fuel", "plane", "house", "zap", "droplets", "flame",
+    "wifi", "smartphone", "tv", "heart-pulse", "pill", "stethoscope", "dumbbell", "clapperboard",
+    "music", "gamepad-2", "book-open", "graduation-cap", "sparkles", "scissors", "baby", "dog",
+    "gift", "party-popper", "shield-check", "repeat", "landmark", "receipt", "wrench", "hammer",
+    "briefcase", "laptop", "store", "trending-up", "percent", "coins", "banknote", "hand-coins",
+    "circle-plus", "circle-ellipsis", "tag", "heart", "church", "users"
+  ],
+  "account": [
+    "wallet", "banknote", "landmark", "piggy-bank", "credit-card", "smartphone", "vault",
+    "building-2", "coins", "circle-dollar-sign"
+  ],
+  "goal": [
+    "piggy-bank", "shield", "bike", "car", "plane", "laptop", "house", "graduation-cap", "gem",
+    "heart", "baby", "tree-palm", "camera", "smartphone", "target"
+  ],
+  "ui": [
+    "layout-dashboard", "arrow-left-right", "chart-pie", "wallet", "tags", "chart-column",
+    "calendar-sync", "piggy-bank", "settings", "plus", "house", "user", "bell", "search",
+    "x", "check", "chevron-left", "chevron-right", "chevron-down", "trash-2", "pencil",
+    "arrow-down-left", "arrow-up-right", "sun", "moon", "monitor", "log-out", "wifi-off",
+    "cloud-upload", "circle-alert", "refresh-cw", "filter", "paperclip", "calendar",
+    "triangle-alert", "inbox", "archive", "rotate-ccw", "ellipsis-vertical", "download", "upload"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "expense-tracker-ui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build --base=/assets/expense_tracker/frontend/",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "frappe-ui": "1.2.0",
+    "idb": "^8",
+    "pinia": "^2.3",
+    "vue": "^3.5",
+    "vue-router": "^4.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^20",
+    "@vitejs/plugin-vue": "^5.2",
+    "@vue/test-utils": "2.4.6",
+    "autoprefixer": "^10.7.0",
+    "fake-indexeddb": "^6",
+    "happy-dom": "^21.0.4",
+    "postcss": "^8.5.33",
+    "tailwindcss": "~3.4.17",
+    "typescript": "~5.6",
+    "vite": "^5.4",
+    "vitest": "^3",
+    "vue-tsc": "^2.2"
+  }
+}

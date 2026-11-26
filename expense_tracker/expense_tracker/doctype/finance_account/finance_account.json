@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-11-23 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "account_name",
+  "account_type",
+  "account_last4",
+  "opening_balance",
+  "opening_date",
+  "current_balance",
+  "credit_limit",
+  "column_break_1",
+  "icon",
+  "color",
+  "include_in_totals",
+  "is_archived",
+  "sort_order",
+  "notes"
+ ],
+ "fields": [
+  {
+   "default": "__user",
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "User",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Account Name",
+   "length": 100,
+   "reqd": 1
+  },
+  {
+   "default": "Cash",
+   "fieldname": "account_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Account Type",
+   "options": "Cash\nSavings Account\nCurrent Account\nCredit Card\nDigital Wallet\nOther",
+   "reqd": 1
+  },
+  {
+   "description": "Used to match bank alert emails (e.g. 'A/c XX1234') to this account.",
+   "fieldname": "account_last4",
+   "fieldtype": "Data",
+   "label": "Account Number (last 4 digits)",
+   "length": 4
+  },
+  {
+   "default": "0",
+   "fieldname": "opening_balance",
+   "fieldtype": "Currency",
+   "label": "Opening Balance",
+   "options": "INR"
+  },
+  {
+   "fieldname": "opening_date",
+   "fieldtype": "Date",
+   "label": "Opening Date"
+  },
+  {
+   "description": "Calculated by the server from the ledger. Never edited directly.",
+   "fieldname": "current_balance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Current Balance",
+   "no_copy": 1,
+   "options": "INR",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.account_type=='Credit Card'",
+   "fieldname": "credit_limit",
+   "fieldtype": "Currency",
+   "label": "Credit Limit",
+   "options": "INR"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "wallet",
+   "fieldname": "icon",
+   "fieldtype": "Data",
+   "label": "Icon",
+   "length": 40
+  },
+  {
+   "default": "#10b981",
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color",
+   "length": 20
+  },
+  {
+   "default": "1",
+   "fieldname": "include_in_totals",
+   "fieldtype": "Check",
+   "label": "Include In Totals"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_archived",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Is Archived"
+  },
+  {
+   "default": "0",
+   "fieldname": "sort_order",
+   "fieldtype": "Int",
+   "label": "Sort Order"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-11-24 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Expense Tracker",
+ "name": "Finance Account",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Expense User",
+   "share": 0,
+   "write": 1
+  }
+ ],
+ "search_fields": "account_type",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "account_name",
+ "track_changes": 1
+}

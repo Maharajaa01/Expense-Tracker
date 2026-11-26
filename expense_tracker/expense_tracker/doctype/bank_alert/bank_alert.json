@@ -1,0 +1,185 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-11-24 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "message_id",
+  "received_on",
+  "sender",
+  "bank",
+  "status",
+  "column_break_1",
+  "transaction_type",
+  "amount",
+  "account_last4",
+  "reference",
+  "merchant",
+  "alert_date",
+  "transaction",
+  "section_note",
+  "note",
+  "snippet"
+ ],
+ "fields": [
+  {
+   "default": "__user",
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "User",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "message_id",
+   "fieldtype": "Data",
+   "label": "Message Id",
+   "length": 255,
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "received_on",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Received On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sender",
+   "fieldtype": "Data",
+   "label": "Sender",
+   "length": 140,
+   "read_only": 1
+  },
+  {
+   "fieldname": "bank",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bank",
+   "length": 60,
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Posted\nDuplicate\nUnrecognised\nNeeds Account\nIgnored\nFailed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break",
+   "label": "Column Break 1"
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nExpense\nIncome",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "options": "INR",
+   "read_only": 1
+  },
+  {
+   "fieldname": "account_last4",
+   "fieldtype": "Data",
+   "label": "Account (last 4)",
+   "length": 4,
+   "read_only": 1
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "label": "Reference",
+   "length": 64,
+   "read_only": 1
+  },
+  {
+   "fieldname": "merchant",
+   "fieldtype": "Data",
+   "label": "Merchant",
+   "length": 140,
+   "read_only": 1
+  },
+  {
+   "fieldname": "alert_date",
+   "fieldtype": "Date",
+   "label": "Alert Date",
+   "read_only": 1
+  },
+  {
+   "description": "Name of the transaction created (plain text so the transaction stays deletable).",
+   "fieldname": "transaction",
+   "fieldtype": "Data",
+   "label": "Transaction",
+   "length": 140,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_note",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Small Text",
+   "label": "Note",
+   "read_only": 1
+  },
+  {
+   "description": "Only for alerts that could not be read: the start of the message with long numbers masked, to improve the reader.",
+   "fieldname": "snippet",
+   "fieldtype": "Small Text",
+   "label": "Snippet",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-11-24 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Expense Tracker",
+ "name": "Bank Alert",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Expense User",
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "merchant",
+ "track_changes": 0
+}

@@ -1,0 +1,238 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "FTX-.YYYY.-.#####",
+ "creation": "2026-11-23 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "transaction_type",
+  "transaction_date",
+  "amount",
+  "title",
+  "column_break_1",
+  "account",
+  "to_account",
+  "category",
+  "is_refund",
+  "section_break_1",
+  "notes",
+  "column_break_2",
+  "source",
+  "client_txn_id",
+  "recurring_transaction",
+  "savings_goal",
+  "has_attachments",
+  "needs_review",
+  "merchant_key",
+  "bank_reference"
+ ],
+ "fields": [
+  {
+   "default": "__user",
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "User",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "Expense",
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "Expense\nIncome\nTransfer",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "options": "INR",
+   "reqd": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "length": 140
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Account",
+   "options": "Finance Account",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:doc.transaction_type=='Transfer'",
+   "fieldname": "to_account",
+   "fieldtype": "Link",
+   "label": "To Account",
+   "mandatory_depends_on": "eval:doc.transaction_type=='Transfer'",
+   "options": "Finance Account",
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:doc.transaction_type!='Transfer'",
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Category",
+   "mandatory_depends_on": "eval:doc.transaction_type!='Transfer'",
+   "options": "Finance Category"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.transaction_type=='Expense'",
+   "description": "Money returned for an earlier expense. Reduces spending instead of counting as income.",
+   "fieldname": "is_refund",
+   "fieldtype": "Check",
+   "label": "Is Refund"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Manual",
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Source",
+   "options": "Manual\nRecurring\nImport\nSync\nGoal\nBank Alert",
+   "read_only": 1
+  },
+  {
+   "description": "Idempotency key. Unique per user.",
+   "fieldname": "client_txn_id",
+   "fieldtype": "Data",
+   "label": "Client Transaction ID",
+   "length": 64,
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "recurring_transaction",
+   "fieldtype": "Link",
+   "label": "Recurring Transaction",
+   "no_copy": 1,
+   "options": "Recurring Transaction",
+   "read_only": 1
+  },
+  {
+   "fieldname": "savings_goal",
+   "fieldtype": "Link",
+   "label": "Savings Goal",
+   "no_copy": 1,
+   "options": "Savings Goal",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "has_attachments",
+   "fieldtype": "Check",
+   "label": "Has Attachments",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Created automatically (e.g. from a bank alert) and waiting for the user to choose a category.",
+   "fieldname": "needs_review",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Needs Category"
+  },
+  {
+   "description": "Normalised payee (UPI ID or name) used to remember categories.",
+   "fieldname": "merchant_key",
+   "fieldtype": "Data",
+   "label": "Merchant Key",
+   "length": 140,
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "bank_reference",
+   "fieldtype": "Data",
+   "label": "Bank Reference",
+   "length": 64,
+   "no_copy": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-11-24 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Expense Tracker",
+ "name": "Finance Transaction",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Expense User",
+   "share": 0,
+   "write": 1
+  }
+ ],
+ "search_fields": "transaction_type,amount,transaction_date",
+ "show_title_field_in_link": 1,
+ "sort_field": "transaction_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

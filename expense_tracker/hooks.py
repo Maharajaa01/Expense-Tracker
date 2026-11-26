@@ -5,6 +5,43 @@ app_description = "This App Is User to Track Expenses"
 app_email = "vijaymaharajan38@gmail.com"
 app_license = "mit"
 
+# SPA served at /expense (see expense_tracker/www/expense.py)
+website_route_rules = [
+	{"from_route": "/expense/<path:app_path>", "to_route": "expense"},
+]
+
+# Service worker + manifest served from /expense/ (see pwa.py)
+page_renderer = ["expense_tracker.pwa.PWARenderer"]
+
+# Installation
+after_install = "expense_tracker.setup.provision.after_install"
+
+# Row-level isolation for every user-owned DocType (see permissions.py)
+_USER_DOCTYPES = (
+	"Expense Profile",
+	"Finance Account",
+	"Finance Category",
+	"Finance Transaction",
+	"Finance Budget",
+	"Recurring Transaction",
+	"Savings Goal",
+	"Transaction Attachment",
+	"Finance Notification",
+	"Offline Sync Log",
+	"Bank Alert",
+)
+permission_query_conditions = {
+	dt: "expense_tracker.permissions.get_permission_query_conditions" for dt in _USER_DOCTYPES
+}
+has_permission = {dt: "expense_tracker.permissions.has_permission" for dt in _USER_DOCTYPES}
+
+# Scheduled jobs (see tasks.py)
+scheduler_events = {
+	"daily": ["expense_tracker.tasks.daily"],
+	"weekly": ["expense_tracker.tasks.weekly"],
+	"cron": {"*/10 * * * *": ["expense_tracker.tasks.bank_alerts"]},
+}
+
 # Apps
 # ------------------
 
